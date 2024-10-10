@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(218, 178, 255);
+  user-select: none;
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-image: url("/src/img/depositphotos_13688863-stock-photo-purple-and-white-polka-dot.jpg");
+  padding: 40px 60px;
+  border-radius: 8px;
+}
+h2 {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+.reset {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  width: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.reset:hover {
+  background-color: rgb(40, 40, 40);
+}
+.game {
+  width: 430px;
+  height: 430px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+.item {
+  position: relative;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+  font-size: 3em;
+  transform: rotateY(180deg);
+  transition: 0.25s;
+  border-radius: 15px;
+}
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: aliceblue;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+  border-radius: 15px;
+}
+.item.boxOpen {
+  transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxMatch::after {
+  transform: rotateY(180deg);
+}
