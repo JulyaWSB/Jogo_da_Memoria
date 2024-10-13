@@ -27,10 +27,13 @@ for (let i = 0; i < emojis.length; i++) {
   document.querySelector(".game").appendChild(box);
 }
 
-function handleClick() {
+function handleClick(e) {
   if (openCards.length < 2) {
-    this.classList.add("boxOpen");
-    openCards.push(this);
+    const classList = e.target.classList;
+    if (classList && classList.length > 0 && !classList.contains("boxMatch")) {
+      this.classList.add("boxOpen");
+      openCards.push(this);
+    }
   }
   if (openCards.length === 2) {
     setTimeout(checkMatch, 500);
